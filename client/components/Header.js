@@ -7,6 +7,8 @@ import _ from 'underscore';
 import searchGooglePlaces from '../utils/searchGooglePlaces.js';
 import actions from '../actions/index.js';
 
+import { StickyContainer, Sticky } from 'react-sticky';
+
 class Header extends Component {
 
   handleClick(e) {
@@ -25,29 +27,35 @@ class Header extends Component {
     }
 
     return (
-      <header>
-        <nav className='col-12-12'>
-          <ul>
-            <li>{logInOut}</li>
-          </ul>
-        </nav>
-        <div className='grid'>
-          <div className='col-2-12'>
-            <img className='ninja' src='./../assets/ninja.svg' />
-          </div>
-          <div className='col-10-12'>
-            <h1>SCENIC<span className='black'>.NINJA</span></h1>
-            <p className='description'>After years spent scouring Google Places, Scenic Ninja is ready to share his wisdom with you.</p>
-            <button
-            onClick={ this.handleClick.bind(this) }
-            type="submit">Find Views
-            </button>
-          </div>
-        </div>
-      </header>
+      <StickyContainer>
+        <Sticky topOffset={300}>
+          <header>
+            <nav className='col-12-12'>
+              <ul>
+                <li>{logInOut}</li>
+              </ul>
+            </nav>
+            <div className='grid'>
+              <div className='col-2-12'>
+                <img className='ninja' src='./../assets/ninja.svg' />
+              </div>
+              <div className='col-10-12'>
+                <h1>SCENIC<span className='black'>.NINJA</span></h1>
+                <p className='description'>After years spent scouring Google Places, Scenic Ninja is ready to share his wisdom with you.</p>
+                <button
+                onClick={ this.handleClick.bind(this) }
+                type="submit">Find Views
+                </button>
+              </div>
+            </div>
+          </header>
+  
+        </Sticky>
+      </StickyContainer>
     );
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {
