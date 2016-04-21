@@ -21,9 +21,9 @@ class Navbar extends Component {
   }
   handleScroll() {
     if (window.scrollY > 300) {
-      $('div .navbar').attr('style', "width: 100%; height: 30px; background-color: #E55136; position: fixed; top: 0; z-index: 1");
+      $('div .navbar').addClass('showNav')
     } else {
-      $('div .navbar').attr('style', 'display: none');
+      $('div .navbar').removeClass('showNav');
     }
   }
 
@@ -39,12 +39,11 @@ class Navbar extends Component {
 
     return (
 
-      // <div className="navbar" style={{width: '100%', height: '50px', 'backgroundColor': '#E55136', position: 'fixed', top: 0, zIndex: 1, display: ''}}>
       <div className="navbar">
         <a href='#'>
-          <img className='' style={{ height: '30px', 'padding-left': '15px' }} src='./../assets/ninja.svg' />
+          <img className='navNinja' src='./../assets/ninja.svg' />
         </a>
-        <p style={{ display: 'inline-block', float: 'right', margin: '0 0 0 0', 'padding': '7px 30px' }}>{logInOut}</p>
+        <p className='navLogInOut'>{logInOut}</p>
       </div>
 
     )
