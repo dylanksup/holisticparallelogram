@@ -10,6 +10,7 @@ import searchGooglePlaces from '../utils/searchGooglePlaces.js';
 import $ from 'jquery';
 
 class App extends Component {
+
   render() {
     return (
       <div>

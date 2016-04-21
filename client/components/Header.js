@@ -27,8 +27,8 @@ class Header extends Component {
     }
 
     return (
-      <StickyContainer>
-        <Sticky topOffset={300}>
+      // <StickyContainer>
+      //   <Sticky>
           <header>
             <nav className='col-12-12'>
               <ul>
@@ -50,8 +50,8 @@ class Header extends Component {
             </div>
           </header>
   
-        </Sticky>
-      </StickyContainer>
+      //   </Sticky>
+      // </StickyContainer>
     );
   }
 }
