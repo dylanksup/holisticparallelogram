@@ -28,7 +28,6 @@ class PlaceEntry extends Component {
         </div>
         <div className='place-entry-favorite'>
           <span onClick={this.handleClick.bind(this)} className='icon-heart' aria-hidden='true'></span>
-          <span onClick={this.handleClick.bind(this)} className='icon-ban' aria-hidden='true'></span>
         </div>
       </div>
     );

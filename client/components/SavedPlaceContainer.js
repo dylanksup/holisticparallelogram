@@ -1,6 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import SavedPlaceEntry from './SavedPlaceEntry.js';
+import ReactDOM from 'react-dom';
+import actions from '../actions/index.js';
+import $ from 'jquery';
 
 class SavedPlaceContainer extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class SavedPlaceContainer extends Component {
           <h3>Your Saved Places</h3>
           { this.props.savedPlaces.map((savedPlace) => (
             <div>
-              <SavedPlaceEntry savedPlace={savedPlace} />
+              <SavedPlaceEntry savedPlace={savedPlace} onDeleteClick={this.props.onDeleteClick} />
             </div>
           ))}
         </div>
@@ -48,6 +51,22 @@ SavedPlaceContainer.propTypes = {
   savedPlaces: PropTypes.array,
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onDeleteClick: (place, user) => {
+      // $.ajax({
+      //   url: '/api/places/saved',
+      //   method: 'DELETE',
+      //   data: {user: user, place: place}
+      // });
+      console.log(JSON.stringify(place) + ' < ---------- PLACE');
+      console.log(JSON.stringify(user) + ' < ------------ USER');
+      dispatch(actions.deletePlace(place));
+    }
+  };
+};
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SavedPlaceContainer);
