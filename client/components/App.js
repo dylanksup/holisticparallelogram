@@ -8,14 +8,20 @@ import PlaceContainer from './PlaceContainer';
 import SavedPlaceContainer from './SavedPlaceContainer';
 import searchGooglePlaces from '../utils/searchGooglePlaces.js';
 import $ from 'jquery';
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 class App extends Component {
 
   render() {
     return (
       <div>
+
         <Header/>
+
         <Navbar/>
+
+
         <div className='grid'>
           <PlaceContainer/>
           <SavedPlaceContainer/>
