@@ -54,13 +54,13 @@ SavedPlaceContainer.propTypes = {
 const mapDispatchToProps = (dispatch) => {
   return {
     onDeleteClick: (place, user) => {
-      // $.ajax({
-      //   url: '/api/places/saved',
-      //   method: 'DELETE',
-      //   data: {user: user, place: place}
-      // });
-      console.log(JSON.stringify(place) + ' < ---------- PLACE');
-      console.log(JSON.stringify(user) + ' < ------------ USER');
+      $.ajax({
+        url: '/api/places/saved',
+        method: 'DELETE',
+        data: {user: user, place: place}
+      });
+      // console.log(JSON.stringify(place) + ' < ---------- PLACE');
+      // console.log(JSON.stringify(user) + ' < ------------ USER');
       dispatch(actions.deletePlace(place));
     }
   };
