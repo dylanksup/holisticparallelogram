@@ -202,6 +202,10 @@ button:focus {
   color: #FF5A3B;
 }
 
+.icon-ban:hover {
+  color: #FF0000;
+}
+
 #spinner {
   margin-top: 24px;
   text-align: center;
