@@ -57,7 +57,7 @@ const mapDispatchToProps = (dispatch) => {
       $.ajax({
         url: '/api/places/saved',
         method: 'DELETE',
-        data: {user: user, place: place}
+        data: {user: user, place: place},
       });
       // console.log(JSON.stringify(place) + ' < ---------- PLACE');
       // console.log(JSON.stringify(user) + ' < ------------ USER');

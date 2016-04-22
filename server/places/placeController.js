@@ -41,7 +41,7 @@ module.exports.saveOne = function(req, res) {
 module.exports.deleteOne = function(req, res) {
   var user = req.body.user;
   var place = req.body.place;
-  console.log(JSON.stringify(place) + ' < ----------- PLACE');
+  // console.log(JSON.stringify(place) + ' < ----------- PLACE');
 
   // User.findOne({
   //   where: user
@@ -58,12 +58,13 @@ module.exports.deleteOne = function(req, res) {
   //   res.json(user);
 
   // });
+
   var userFound;
   User.findOne({
     where: user
   })
   .then(function(foundUser) {
-    console.log(JSON.stringify(foundUser) + ' < --------- FOUNDUSER');
+    // console.log(JSON.stringify(foundUser) + ' < --------- FOUNDUSER');
     userFound = foundUser;
   });
 
@@ -71,10 +72,11 @@ module.exports.deleteOne = function(req, res) {
     where: {googlePlaceId: place.googlePlaceId} 
   })
   .then(function(place) {
-    console.log(JSON.stringify(place) + '  <-------------- PLACEFOUND');
     // remove the association between the user and the place
     userFound.removePlace(place).then(function() {
       console.log('REMOVED');
+      console.log(JSON.stringify(place) + '  <-------------- PLACEFOUND');
+      res.json(place);
     });
     // user.removePlace(place);
       // TODO: For future, do a check: 
