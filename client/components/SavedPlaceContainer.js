@@ -66,6 +66,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+SavedPlaceContainer.propTypes = {
+  places: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
